@@ -146,7 +146,7 @@ Test coverage reports are included in the `/tests` folder.
 ## 🌐 Live Demo
 
 Check out a similar deployed project:  
-👉 [The Sweet Shop by David Hearl](https://the-sweet-shop-davidhearl.herokuapp.com/)  
+👉 [The Sweet Shop by Manish Mahawarl](https://the-sweet-shop-davidhearl.herokuapp.com/)  
 👉 [GitHub Repository](https://github.com/manish0x1/Sweet-Shop-main)
 
 ---
