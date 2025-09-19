@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container-md push-down">
+        <!-- Main Content -->
+        <div class="row">
+            <div class="col main-banner">
+                <h2 class="home-heading">Over 120+ retro and modern sweets and treats available to buy online</h2>
+            </div>
+        </div>
+        <!-- Featured Navigation -->
+        <div class="row">
+            <div class="col-12">
+                <div class="home-main">
+                    <h2 class="hero-heading">All your favourites</h2>
+                    <p class="hero-body">Retro, Fizzy, Jelly, Gummy, Chocolate plus so much more !</p>
+                    <a href="{% url 'products' %}" class="action-button">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="home-left">
+                    <h2 class="hero-heading">Sweets</h2>
+                    <p class="hero-body">Whatever you fancy</p>
+                    <a href="{% url 'products' %}" class="action-button">Sweets</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="home-right">
+                    <h2 class="hero-heading">Chocolate !</h2>
+                    <p class="hero-body">It's all about the choc</p>
+                    <a href="{% url 'products' %}?category=chocolate" class="action-button">Chocolate</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="container">
+            <div class="row">
+                <div class="col featured">
+                    <h2 class="home-heading">Some of our favourites...</h2>
+                    <div class="main-carousel" data-flickity='{ "wrapAround": true, "imagesLoaded": true }'>
+                        {% for product in products %}
+                            {% if product.image %}
+                                <div class="col-6 col-md-4 col-lg-3 col-xl-2 product-spacing-container">
+                                    <div class="card h-100 carousel-card">
+                                        <!-- Image, category and Name -->
+                                        <a href="{% url 'product_detail' product.id %}" aria-hidden="true">
+                                            <img class="card-img-top img-fluid product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                        </a>
+                                        {% if product.category %}
+                                            <div class="category-label text-center">
+                                                <a class="category-text" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <i class="fas fa-tag"></i>
+                                                    <span class="category-value">{{ product.category.friendly_name }}</span>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <div class="text-center">{{ product.name }}</div>
+                                        </div>
+        
+                                        <!-- Price, rating and edit buttons-->
+                                        <div class="card-footer bg-white">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="price text-center">£{{ product.price }} / 100g</p>
+                                                    {% if product.rating %}
+                                                        <div class="text-center">
+                                                            {% if product.rating >= 1 %}
+                                                                <i class="fas fa-star"></i>
+                                                                {% if product.rating >= 2 %}
+                                                                    <i class="fas fa-star"></i>
+                                                                    {% if product.rating >= 3 %}
+                                                                        <i class="fas fa-star"></i>
+                                                                        {% if product.rating >= 4 %}
+                                                                            <i class="fas fa-star"></i>
+                                                                            {% if product.rating >= 5 %}
+                                                                                <i class="fas fa-star"></i>
+                                                                            {% endif %}
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endif %}
+            
+                                                            {% if product.rating <= 4 %}
+                                                                <i class="fa-regular fa-star"></i>
+                                                                {% if product.rating <= 3 %}
+                                                                    <i class="fa-regular fa-star"></i>
+                                                                    {% if product.rating <= 2 %}
+                                                                        <i class="fa-regular fa-star"></i> 
+                                                                        {% if product.rating <= 1 %}
+                                                                            <i class="fa-regular fa-star"></i> 
+                                                                        {% endif %}
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        </div>
+                                                    {% else %}
+                                                        <p>No Rating</p>
+                                                    {% endif %}
+            
+                                                    {% if request.user.is_superuser %}
+                                                        <div>
+                                                            <button class="edit-button edit-delete" aria-hidden="true">
+                                                                <a href="{% url 'modify_product' product.id %}">Edit</a>
+                                                            </button>
+                                                            <button class="delete-button edit-delete" aria-hidden="true">
+                                                                <a href="{% url 'delete_product' product.id %}">Delete</a>
+                                                            </button>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 class="home-heading">Shop by Brand...</h2>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="{% url 'products' %}?brand=Haribo">
+                    <!-- <img class="logo" src="./media/Logo_Barrat.webp" alt=""> -->
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Barrat.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Cadbury.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Haribo.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Hershey.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Jelly_Belly.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Kinder.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Maoam.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Nestle.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Reese.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Swizzels.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Warheads.webp" alt="">
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 logo-container">
+                <a href="">
+                    <img class="logo" src="{{MEDIA_URL}}Logo_Wonka.webp" alt="">
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h2 class="home-heading">Sign up for our newsletter...</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid border-top border-dark">
+        <div class="row rounded-0 border border-light justify-content-center">
+            <!-- Begin Mailchimp Signup Form -->
+            <div id="mc_embed_signup">
+                <form action="https://gmail.us9.list-manage.com/subscribe/post?u=13f91398b624bdac6f763ddc4&amp;id=522c2c31be&amp;f_id=000429e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                    <div class="mc-field-group">
+                        <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                    </label>
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+                        <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+                    </div>
+                    <div class="mc-field-group">
+                        <label for="mce-FNAME">First Name </label>
+                        <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                        <span id="mce-FNAME-HELPERTEXT" class="helper_text"></span>
+                    </div>
+                    <div id="mce-responses" class="clear foot">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13f91398b624bdac6f763ddc4_522c2c31be" tabindex="-1" value=""></div>
+                        <div class="optionalParent">
+                            <div class="clear foot">
+                                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                                <p class="brandingLogo"><a href="http://eepurl.com/h_ShJr" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg" alt="mailchamp logo"></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--End mc_embed_signup-->
+        </div>
+    </div>
+{% endblock %}
+
+<script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script>
+    (function($) {window.fnames = new Array();
+        window.ftypes = new Array();
+        fnames[0]='EMAIL';
+        ftypes[0]='email';
+        fnames[1]='FNAME';
+        ftypes[1]='text';
+        fnames[2]='LNAME';
+        ftypes[2]='text';
+        fnames[3]='ADDRESS';
+        ftypes[3]='address';
+        fnames[4]='PHONE';
+        ftypes[4]='phone';
+        fnames[5]='BIRTHDAY';
+        ftypes[5]='birthday';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+</script>

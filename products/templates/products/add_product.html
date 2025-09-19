@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container push-down">
+        <div class="row">
+            <div class="col">
+                <h2>Product Database</h2>
+                <hr>
+                <h5>Add a Product</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in modify_product %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <button class="control-button"><a href="{% url 'products' %}">Cancel</a></button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button type="submit" class="control-button">Add Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}

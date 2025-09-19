@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container push-down">
+        <div class="row">
+            <div class="col">
+                <h2>Product Database</h2>
+                <hr>
+                <h5>Modify Pricing : {{ products.count }} products</h5>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="row">
+            {% for product in products %}
+                <div class="col-6 col-lg-4 col-xl-3">
+                    <form method="POST" action="{% url 'post_price' product.id %}" class="form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="pricing-form">
+                            <p class="text-center"><strong>{{ product.name }}</strong> : £{{ product.price }}</p>
+                            <p class="modify-pricing-container">{{ manage_inventory.price | as_crispy_field }}</p>
+                            <input type="submit" class="full-width-action-button" value="Modify">
+                        </div>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script>
+        $('#new-image').change(function() {
+            var file = $('#new-image')[0].files[0];
+            $('#filename').text(`Image will be set to: ${file.name}`);
+        });
+    </script>
+{% endblock %}

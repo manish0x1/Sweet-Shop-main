@@ -1,0 +1,756 @@
+/* -------------------- Direct Element Styles -------------------- */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    margin-top: 4px;
+}
+
+hr {
+    margin: 8px 0;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+footer{
+    margin-top: auto;
+}
+
+/* -------------------- General -------------------- */
+.cover {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+.table-borderless>:not(caption)>*>* {
+    padding-left: 0;
+}
+
+/* -------------------- Navigation -------------------- */
+.title {
+    font-family: "Permanent Marker";
+}
+
+.navbar{
+    border-bottom: 1px solid black;
+    background-image: linear-gradient(to right top, #ffc6cf, #feb3be, #fb9fad, #f88b9c, #f4768a);
+}
+
+.navigation-menu {
+    border-top: 1px solid black;
+    background-color: #f4768a;
+}
+
+.navigation-text {
+    color: #fff;
+    margin: 0px 30px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.navigation-text-mobile {
+    color: #fff;
+}
+
+.navbar-toggler {
+    margin-left: 10px;
+    padding: 4px;
+    border: none;
+}
+
+.mobile-navigation {
+    margin: 0 12px;
+}
+
+.navigation-icon-container {
+    margin: 8px 0;
+}
+
+.top-navigation {
+    background-color: white;
+}
+
+.dropdown-hr {
+    margin: 0;
+}
+
+/* -------------------- Home -------------------- */
+
+.main-banner {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.home-heading {
+    font-family: "Permanent Marker";
+    color: #f3647c;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 16px;
+    text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
+}
+
+.hero-heading {
+    font-family: "Permanent Marker";
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-size: 2rem;
+}
+
+.hero-body {
+    font-family: "Permanent Marker";
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.action-button,
+.action-button-detail {
+    background-image: linear-gradient(to right top, #c593f9, #df86df, #ef7cc2, #f577a6, #f4768a);
+    justify-content: center;
+    width: 200px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    color: black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-family: "Permanent Marker";
+    font-size: 1.1rem;
+    border: 1px solid #0C0404;
+}
+
+.action-button {
+    margin: 20px auto;
+}
+
+.action-button-detail {
+    margin: 20px;
+}
+
+.full-width-action-button {
+    background-image: linear-gradient(to right top, #c593f9, #df86df, #ef7cc2, #f577a6, #f4768a);
+    justify-content: center;
+    width: 100%;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    margin: 10px auto;
+    margin-bottom: 2px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-size: 1.1rem;
+    border: 1px solid #0C0404;
+}
+
+.card-group {
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: auto 6px;
+}
+
+/* -------------------- Profile Buttons -------------------- */
+.form-control {
+    margin-top: 10px;
+}
+
+.control-button {
+    background-image: linear-gradient(to right top, #c593f9, #df86df, #ef7cc2, #f577a6, #f4768a);
+    border: 1px solid black;
+    width: 180px;
+    padding: 10px;
+    border-radius: 23px;
+    color: white;
+    margin: 20px 0;
+}
+
+.home-action {
+    width: 100px;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.home-main {background-image: linear-gradient(to right top, #874087, #a34d9b, #c15aaf, #df67c2, #ff74d5);}
+.home-left {background-image: linear-gradient(to right top, #ebc7cd, #efbbc3, #f3afba, #f6a2af, #f895a5);}
+.home-right {background-image: linear-gradient(to right top, #964817, #854a21, #754b2b, #654a35, #55493f);}
+
+.home-main,
+.home-left,
+.home-right {
+    border-radius: 25px;
+    border: 1px solid black;
+    min-height: 250px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.logo-container {
+    padding: 8px;
+    text-align: center;
+}
+
+.logo {
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.logo:hover {
+    box-shadow: 1px 1px 10px rgb(221, 183, 236), 0 0 20px rgb(207, 110, 240), 0 0 30px rgb(127, 3, 118);
+}
+
+.placeholder {
+    border: 1px solid black;
+    min-height: 100px;
+    min-width: 100%;
+}
+
+.form-check-input[type=checkbox] {
+    margin-top: 9px;
+}
+
+/* -------------------- Carousel -------------------- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    border-radius: 5px;
+}
+
+.carousel-card {
+    margin: 0 8px;
+    border: 1px solid black;
+}
+
+/* -------------------- Cards -------------------- */
+
+.card-body {
+    margin: 0;
+    padding: 5px;
+    position: relative;
+}
+
+.featured-card {
+    border: 1px solid black;
+    max-width: 200px;
+}
+
+.featured {
+    margin-bottom: 30px;
+}
+
+.price {
+    margin: 4px 0px;
+    font-size: 1rem;
+}
+
+.category-label {
+    background-image: linear-gradient(to right top, #ffc6cf, #feb3be, #fb9fad, #f88b9c, #f4768a);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    color: white;
+    padding: 2px;
+}
+
+.category-text{
+    color: white;
+}
+
+.fa-tag {
+    color: white !important;
+}
+
+.login-button,
+.register {
+    width: 100%;
+    margin: 16px 0 8px 0;
+    background-color: #f4768a;
+    border-radius: 6px;
+    border: none;
+    padding: 8px;
+    color: white;
+    border: 1px solid black;
+}
+
+#id_email,
+#id_email2,
+#id_username,
+#id_password1,
+#id_password2 {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #f1a1af;
+}
+
+#div_id_login {
+    margin: 8px 0;
+}
+
+#search-bar{
+    margin-top: 8px !important;
+    left: 0;
+    margin-left: -25px;
+}
+
+.desktop-search,
+.desktop-search-icon {
+    margin-top: 10px;
+    margin-left: 4px;
+}
+
+.mobile-search {
+    margin-top: 0px !important;
+}
+
+.dropdown-menu {
+    width: 96% !important;
+    margin-left: 2%;
+    border: 1px solid black !important;
+    left: 0;
+}
+
+.pink {
+    color: #f4768a;
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+.push-down{
+    margin-top: 140px;
+}
+
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.message-container{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 999;
+}
+
+/* Shopping Bag */
+
+.shopping-bag-wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;    
+}
+
+.shopping-bag-buttons{
+    margin-top: 10px;
+}
+
+.shopping-bag-product-information {
+    max-width: 200px;
+}
+
+.shopping-bag-image-container {
+    text-align: center;
+    border: 1px solid black;
+    max-width: 200px;
+    border-radius: 10px;
+}
+
+.shopping-bag-row {
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.shopping-bag-checkout {
+    text-align: end;
+    margin-bottom: 8px;
+}
+
+.serious-button-a {
+    max-width: 300px;
+    margin: 16px 0 0 10px;
+    width: 100%;
+    padding: 11px;
+    background-color: rgba(255, 192, 203, 0.4);
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.card-charge {
+    margin: 12px;
+    font-size: 1rem;
+}
+
+/* -------------------- Product Detail -------------------- */
+
+.product-detail-image-container {
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+    max-width: 275px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.product-detail-category-label {
+    background-image: linear-gradient(to right top, #ffc6cf, #feb3be, #fb9fad, #f88b9c, #f4768a);
+    border-top: 1px solid black;
+    color: white;
+    padding: 2px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.product-detail-spacing {
+    margin-bottom: 6px;
+}
+
+.product-detail-image {
+    width: 100%;
+    height: 100%;
+    max-width: 275px;
+    max-height: 275px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product-detail-button-container {
+    margin: 30px 0 10px 0;
+}
+
+.product-detail-button {
+    max-width: 300px;
+    width: 100%;
+    padding: 14px;
+    text-decoration: none;
+    background-image: linear-gradient(to right top, #f5b1fb, #e2a0e9, #d08fd7, #be7ec6, #ac6eb5);
+    color: white;
+    border: 1px solid black;
+    border-radius: 28px;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.product-detail-button > a {
+    color: white;
+}
+
+.quantity_input {
+    width: 90%;
+    border: 1px solid black !important;
+    border-radius: 4px !important;
+}
+
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: auto;
+    background: none;
+    border: none;
+    text-align: center;
+    max-width: 500px
+}
+
+.product-detail-form {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-deatail-form > p {
+    margin-bottom: 10px;
+}
+
+.quantity {
+    margin: 0;
+}
+
+.fa-tag {
+    color: gray;
+}
+
+.increment-quantity,
+.decrement-quantity {
+    border: 1px solid black;
+    background: none;
+    border-radius: 4px;
+    padding: 6px 10px 6px 12px;
+    margin-top: 10px;
+}
+
+.decrement-quantity {
+    margin-right: 5px;
+}
+
+.increment-quantity {
+    margin-left: 5px;
+}
+
+.edit-button,
+.delete-button {
+    width: 100%;
+    padding: 6px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: white;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+}
+
+.edit-button > a,
+.delete-button > a {
+    color: white;
+}
+
+.edit-button {
+    background-color: #0d6efd;    
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+/* -------------------- Review -------------------- */
+.review-title {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.delete-review {
+    background-color: #dc3545;
+    border-radius: 4px;
+    padding: 4px 12px;
+    border: none;
+    float: right;
+    margin-top: 8px;
+}
+
+.delete-review > a {
+    color: white;
+}
+
+.no-reviews {
+    text-align: center;
+    margin: 8px 0;
+}
+
+.fa-heart:before {
+    font-size: 1.5rem;
+    color: #f4677f;
+}
+
+/* -------------------- Alerts -------------------- */
+.alert {
+    margin-top: 12px;
+}
+
+/* -------------------- Account -------------------- */
+.account-forms {
+    max-width: 800px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#sign-out {
+    text-align: center;
+    padding: 8px 0;
+}
+
+.signout-button {
+    background-image: linear-gradient(to right top, #f06c6c, #d95551, #c13d37, #a9241d, #900000);
+    justify-content: center;
+    width: 200px;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    color: black;
+    margin: 20px auto;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+    font-size: 1.1rem;
+    border: 1px solid #0C0404;
+}
+
+.pricing-form {
+    border: 1px solid gray;
+    padding: 6px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+
+}
+
+.pricing-form > p {
+    font-size: 0.86rem;
+}
+
+.modify-pricing {
+    margin: 10px 0 0 0;
+    float: right;
+    padding: 4px;
+}
+
+.modify-pricing-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.modify-pricing-container > label {
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.edit-delete {
+    margin: 4px 0;
+}
+
+/* -------------------- Product Page -------------------- */
+.back-to-top {
+    margin-bottom: 24px;
+    padding: 10px;
+    border-radius: 8px;
+    background-image: linear-gradient(to right top, #f5b1fb, #e2a0e9, #d08fd7, #be7ec6, #ac6eb5);
+    color: white;
+    border: 1px solid black;
+}
+
+.btt-text {
+    padding: 8px;
+}
+
+.product-spacing-container {
+    margin-bottom: 24px;
+}
+
+.product-card {
+    border: 1px solid black;
+}
+
+.placeholder-div {
+    width: 100%;
+    height: 200px;
+}
+
+/* -------------------- Extras -------------------- */
+.close-toast {
+    border: none;
+    background: none;
+    margin-left: 10px;
+}
+
+.toast {
+    border: 1px solid rgb(50, 50, 50);
+}
+
+.toast-header {
+    border-bottom: 2px solid rgb(101, 177, 84);
+    background-color: rgb(240, 252, 240);
+}
+
+.toast-body {
+    background-color: rgb(240, 252, 240);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.go-to-checkout-button {
+    text-align: center;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+#div_id_price {
+    display: flex;
+    flex-direction: row;
+    max-width: 240px;
+}
+
+#id_price {
+    display: flex;
+    flex-direction: row;
+    margin: 2px 0 0 8px;
+    padding: 2px;
+    text-align: end;
+}
+
+.serious-button {
+    max-width: 300px;
+    margin: 16px 0 0 10px;
+    width: 100%;
+    padding: 8px;
+    background-color: rgba(255, 192, 203, 0.4);
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+/* -------------------- Mailchamp -------------------- */
+#mc_embed_signup{
+    background:#fff;
+    clear:left;
+    font:14px Helvetica,Arial,sans-serif;
+    width:95%;
+    max-width: 1000px;
+}
+
+.copyright {
+    padding: 16px;
+    border-top: 1px solid black;
+    color: white;
+    background-image: linear-gradient(to right top, #ffc6cf, #feb3be, #fb9fad, #f88b9c, #f4768a);
+}
+
+@media only screen and (max-width: 1075px) {
+    .navigation-text {
+        margin: 0 25px;
+        font-size: 1.09rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .push-down{
+        margin-top: 72px;
+    }
+
+    .product-detail-image-container {
+        margin-top: 60px;
+    }
+
+    #div_id_price {
+        max-width: 225px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .product-detail-image-container {
+        margin-top: 30px;
+    }
+    
+    div > .input-group-prepend,
+    div > .input-group-append {
+        display: none;
+    }
+}
